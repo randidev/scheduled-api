@@ -7,7 +7,7 @@ import {
 } from "./config/schema";
 import { MESSAGES } from "./config/messages";
 
-const UserController = {
+export const UserController = {
   getAll: async (req: Request, res: Response) => {
     try {
       const results = await User.find({});
@@ -31,11 +31,9 @@ const UserController = {
 
       const exist = await User.find({ email: req.body.email });
 
-      console.log(exist);
-
-      if (exist)
+      if (exist && exist.length > 0)
         return res.status(409).send({
-          success: true,
+          success: false,
           message: MESSAGES.CREATE_USER.ERROR.EMAIL_EXIST,
         });
 
@@ -48,6 +46,7 @@ const UserController = {
         message: MESSAGES.CREATE_USER.SUCCESS,
       });
     } catch (err: any) {
+      console.log(err.message);
       return res.status(500).send({
         success: false,
         message: err.message,

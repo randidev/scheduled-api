@@ -1,9 +1,6 @@
 const BirthdayEmail = require("./src/jobs/birthdayEmail/index");
-const initApp = require("./index");
+const app = require("./index");
 var cron = require("node-cron");
-
-const app = initApp();
-// Start server
 
 // run BirthdayEmail job each hour
 cron.schedule("0 0 * * * *", async () => {

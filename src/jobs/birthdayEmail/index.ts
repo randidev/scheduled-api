@@ -19,10 +19,12 @@ const BirthdayEmail = async () => {
   users.data.forEach(async (user) => {
     const getLog = await getEmailLogDetail(user._id);
 
-    // check if it's already 9am based on their timezone or if there's any pending message
+    // check if it's already 9am based on their timezone and it's their birthday or if there's any pending message
     // then it will send a message to the user
     if (
-      moment().tz(user.timezone).format("h") === "9" ||
+      (moment().tz(user.timezone).format("h") === "9" &&
+        moment(user.birthdayDate).format("DD-MM-YYYY") ===
+          moment(new Date()).format("DD-MM-YYYY")) ||
       (getLog && getLog.data.status === false)
     ) {
       try {

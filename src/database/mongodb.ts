@@ -1,4 +1,5 @@
 import mongoose, { ConnectOptions } from "mongoose";
+require("dotenv").config();
 
 export const mongoConnect = () => {
   if (mongoose.connections[0].readyState) {

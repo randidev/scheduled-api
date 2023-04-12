@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\"",
-    "test": "cross-env MONGODB_URI=mongodb://localhost:27017/scheduled-api-test jest --collectCoverage --forceExit --detectOpenHandles"
+    "test": "cross-env MONGODB_URI=mongodb://localhost:27017/scheduled-api-test IS_TESTING=true jest --collectCoverage --forceExit --detectOpenHandles"
   },
   "keywords": [],
   "author": "",

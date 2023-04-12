@@ -25,4 +25,5 @@ const initializeApp = () => {
   return app;
 };
 
-module.exports = initializeApp;
+const app = initializeApp();
+module.exports = app;
