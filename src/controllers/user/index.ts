@@ -16,10 +16,10 @@ export const UserController = {
         success: true,
         data: results,
       });
-    } catch (err) {
+    } catch (err: any) {
       return res.status(500).send({
         success: false,
-        message: MESSAGES.GET_USER.ERROR.SERVER,
+        message: err.message,
       });
     }
   },

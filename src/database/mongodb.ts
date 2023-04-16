@@ -9,7 +9,7 @@ export const mongoConnect = () => {
 
   return mongoose
     .connect(
-      process.env.MONGODB_URI || "mongodb://localhost:27017/scheduled-api-test",
+      process.env.MONGODB_URI || "mongodb://localhost:27017/scheduled-api",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
